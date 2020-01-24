@@ -4,4 +4,3 @@ django-heroku
 pycoingecko
 discord
 jikanpy
-BeautifulSoup4
