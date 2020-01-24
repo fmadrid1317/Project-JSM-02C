@@ -7,7 +7,6 @@ from pprint import pprint
 import json
 from PIL import Image
 import requests
-#from bs4 import BeautifulSoup
 import urllib
 import random
 
