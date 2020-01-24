@@ -3,9 +3,7 @@ import discord
 from discord.ext import commands
 import re
 from jikanpy import Jikan
-from pprint import pprint
 import json
-from PIL import Image
 import requests
 import urllib
 import random
