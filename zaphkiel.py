@@ -218,7 +218,7 @@ async def currency(ctx):
 
     response = requests.request("GET", url, headers=headers)
     data = json.loads(response.content)
-    await ctx.send(amount+" "+base+" is equivalent to "+data['amount']+" "+target+" with the current exchange rate")
+    await ctx.send(amount+" "+base+" is equivalent to "+str(data['amount'])+" "+target+" with the current exchange rate")
 
 @bot.event
 async def on_message(message):
