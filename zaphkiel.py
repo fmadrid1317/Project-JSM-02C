@@ -203,6 +203,22 @@ async def numberfacts(ctx):
         randomFact = search_number + " is " + data['text']
     await ctx.send(randomFact)
 
+@bot.command(pass_context=True)
+async def currency(ctx):
+    base = 'USD'
+    target = 'HNL'
+    amount = "1"
+    url = "https://currency13.p.rapidapi.com/convert/"+amount+"/"+base+"/"+target
+
+    headers = {
+        'x-rapidapi-host': "currency13.p.rapidapi.com",
+        'x-rapidapi-key': "6d91c9f439msh87c30494f5265adp18e8a7jsn6496e29a419a"
+        }
+
+    response = requests.request("GET", url, headers=headers)
+    data = json.loads(response.content)
+    await ctx.send(amount+" "+base+" is equivalent to "+data['amount']+" "+target+" with the current exchange rate")
+
 @bot.event
 async def on_message(message):
     # we do not want the bot to reply to itself
