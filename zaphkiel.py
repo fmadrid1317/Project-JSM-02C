@@ -206,9 +206,10 @@ async def numberfacts(ctx):
 
 @bot.command(pass_context=True)
 async def currency(ctx):
-    base = 'USD'
-    target = 'HNL'
-    amount = "1"
+    currency_list = ctx.message.content.split()
+    amount = currency_list[1]
+    base = currency_list[2]
+    target = currency_list[3]
     url = "https://currency13.p.rapidapi.com/convert/"+amount+"/"+base+"/"+target
 
     headers = {
