@@ -223,7 +223,7 @@ async def currency(ctx):
     data = json.loads(response.content)
     data_list = json.loads(list_response.content)
 
-    for i in range(0, len(data_list)):
+    for i in range(0, len(data_list["currencies"])):
         if base == data_list["currencies"][i]["code"]:
             baseName = data_list["currencies"][i]["name"]
             baseSymbol = data_list["currencies"][i]["symbol"]
