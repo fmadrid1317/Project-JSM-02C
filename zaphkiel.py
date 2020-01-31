@@ -250,5 +250,6 @@ async def on_ready():
 
 bot.run(token)
 
-
-# small comment 
+@bot.command(pass_context=True)
+async def dictonary(ctx): 
+    await ctx.send("testing,testing,testing")
