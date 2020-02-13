@@ -7,7 +7,7 @@ trigger:
 - master
 
 variables:
-- group: my-variable-group
+- group: token group
 
 pool:
   vmImage: 'ubuntu-latest'
