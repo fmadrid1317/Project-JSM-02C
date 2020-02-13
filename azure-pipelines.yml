@@ -6,6 +6,9 @@
 trigger:
 - master
 
+variables:
+- group: my-variable-group
+
 pool:
   vmImage: 'ubuntu-latest'
 strategy:
