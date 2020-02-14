@@ -32,6 +32,4 @@ steps:
     pytest
   displayName: 'pytest'
 
-- script: |
-    python3 zaphkiel.py
-  displayName: 'Running the Bot'
+
