@@ -12,8 +12,7 @@ import os
 
 
 #client = discord.Client()
-#token = os.environ['token']
-token = $(token)
+token = os.environ['token']
 bot = commands.Bot(command_prefix = '$')
 jikan = Jikan()
 
