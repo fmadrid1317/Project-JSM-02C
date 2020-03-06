@@ -238,8 +238,7 @@ async def currency(ctx):
 @bot.command(pass_context=True)
 async def wholesomePics(ctx):
     pics_list = ctx.message.content.split()
-    breed = str(pics_list[1:])
-    breed = breed.strip()
+    breed = str(pics_list[1:]).replce(" ","")
     url = "http://gofetch.pictures:5000/breeds/?breed="+breed
     response = requests.request("POST", url)
     data = json.loads(response.content)
