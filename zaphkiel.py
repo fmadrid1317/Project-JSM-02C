@@ -240,7 +240,7 @@ async def wholesomePics(ctx):
     pics_list = ctx.message.content.split()
     breed = pics_list[1:]
     listToStr = ' '.join([str(elem) for elem in breed]) 
-    print("This is some bs "+breed)
+    print("This is some bs "+str(breed))
     strbreed = listToStr.replace(" ","")
     print("This is some more bs "+strbreed)
     url = "http://gofetch.pictures:5000/breeds/?breed="+strbreed
