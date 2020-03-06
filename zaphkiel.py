@@ -234,6 +234,20 @@ async def currency(ctx):
     result = data['amount']
     price =  str(round(result,2))
     await ctx.send(baseSymbol+""+amount+" "+base+"("+baseName+") is equivalent to "+targetSymbol+price+" "+target+"("+targetName+")")
+
+@bot.command(pass_context=True)
+async def wholesomePics(ctx):
+    pics_list = ctx.message.content.split()
+    url = "http://gofetch.pictures:5000/breeds/?breed=corgi"
+    response = requests.request("POST", url)
+    data = json.loads(response.content)
+    animal_name = data['corgi'][0]['breed']
+    animal_image = data['corgi'][0]['imageURL']
+    embed = discord.Embed(title=animal_name, value=str(animal_name), inline=False)
+    embed.set_image(url=animal_image)
+    await ctx.send(embed=embed)
+
+
 @bot.event
 async def on_message(message):
     # we do not want the bot to reply to itself
