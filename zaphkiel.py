@@ -240,14 +240,12 @@ async def wholesomePics(ctx):
     pics_list = ctx.message.content.split()
     breed = pics_list[1:]
     listToStr = ' '.join([str(elem) for elem in breed]) 
-    print("This is some bs "+str(breed))
-    strbreed = listToStr.replace(" ","")
-    print("This is some more bs "+strbreed)
-    url = "http://gofetch.pictures:5000/breeds/?breed="+strbreed
+    strBreed = listToStr.replace(" ","")
+    url = "http://gofetch.pictures:5000/breeds/?breed="+strBreed
     response = requests.request("POST", url)
     data = json.loads(response.content)
-    animal_name = data[strbreed][0]['breed']
-    animal_image = data[strbreed][0]['imageURL']
+    animal_name = data[strBreed][0]['breed']
+    animal_image = data[strBreed][0]['imageURL']
     embed = discord.Embed(title=animal_name, value=str(animal_name), inline=False)
     embed.set_image(url=animal_image)
     await ctx.send(embed=embed)
