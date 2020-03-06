@@ -236,7 +236,7 @@ async def currency(ctx):
     await ctx.send(baseSymbol+""+amount+" "+base+"("+baseName+") is equivalent to "+targetSymbol+price+" "+target+"("+targetName+")")
 
 @bot.command(pass_context=True)
-async def wholesomePics(ctx):
+async def wholesome(ctx):
     pics_list = ctx.message.content.split()
     breed = pics_list[1:]
     listToStr = ' '.join([str(elem) for elem in breed]) 
