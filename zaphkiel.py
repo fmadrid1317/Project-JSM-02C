@@ -239,12 +239,14 @@ async def currency(ctx):
 async def wholesomePics(ctx):
     pics_list = ctx.message.content.split()
     breed = str(pics_list[1:])
-    breed = breed.replace(" ","")
-    url = "http://gofetch.pictures:5000/breeds/?breed="+breed
+    print("This is some bs "+breed)
+    strbreed = breed.replace(" ","")
+    print("This is some more bs "+strbreed)
+    url = "http://gofetch.pictures:5000/breeds/?breed="+strbreed
     response = requests.request("POST", url)
     data = json.loads(response.content)
-    animal_name = data[breed][0]['breed']
-    animal_image = data[breed][0]['imageURL']
+    animal_name = data[strbreed][0]['breed']
+    animal_image = data[strbreed][0]['imageURL']
     embed = discord.Embed(title=animal_name, value=str(animal_name), inline=False)
     embed.set_image(url=animal_image)
     await ctx.send(embed=embed)
