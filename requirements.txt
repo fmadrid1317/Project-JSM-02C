@@ -1,6 +1,6 @@
 django
 gunicorn
-django-heroku
+django-heroku 
 pycoingecko
 discord
 jikanpy
