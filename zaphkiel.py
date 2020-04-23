@@ -273,12 +273,12 @@ async def netflix(ctx):
     response = requests.request("GET", url, headers=headers, params=querystring)
     data = json.loads(response.content)
 
-    titleName = data['COUNT']['ITEMS'][0]['title']
-    synopsis = data['COUNT']['ITEMS'][0]['synopsis']
-    rating = data['COUNT']['ITEMS'][0]['rating']
-    titleType = data['COUNT']['ITEMS'][0]['type']  
-    titleReleased = data['COUNT']['ITEMS'][0]['released']  
-    titleImage = data['COUNT']['ITEMS'][0]['image']
+    titleName = data['ITEMS'][0]['title']
+    synopsis = data['ITEMS'][0]['synopsis']
+    rating = data['ITEMS'][0]['rating']
+    titleType = data['ITEMS'][0]['type']  
+    titleReleased = data['ITEMS'][0]['released']  
+    titleImage = data['ITEMS'][0]['image']
 
     embed = discord.Embed(title=titleName, value=str(titleName), inline=False)
     embed.add_field(name="Synopsis", value=synopsis, inline=False)
