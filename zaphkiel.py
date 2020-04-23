@@ -271,22 +271,24 @@ async def netflix(ctx):
         }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
+
     data = json.loads(response.content)
 
-    titleName = data['ITEMS'][0]['title']
-    synopsis = data['ITEMS'][0]['synopsis']
-    rating = data['ITEMS'][0]['rating']
-    titleType = data['ITEMS'][0]['type']  
-    titleReleased = data['ITEMS'][0]['released']  
-    titleImage = data['ITEMS'][0]['image']
+    for i in range(0, len(data['ITEMS'])):
+        titleName = data['ITEMS'][i]['title']
+        synopsis = data['ITEMS'][i]['synopsis']
+        rating = data['ITEMS'][i]['rating']
+        titleType = data['ITEMS'][i]['type']  
+        titleReleased = data['ITEMS'][i]['released']  
+        titleImage = data['ITEMS'][i]['image']
 
-    embed = discord.Embed(title=titleName, value=str(titleName), inline=False)
-    embed.add_field(name="Synopsis", value=synopsis, inline=False)
-    embed.add_field(name="Type", value=titleType, inline=True)
-    embed.add_field(name="Year Released", value=titleReleased, inline=True)
-    embed.set_image(url=titleImage)
-    await ctx.send(embed=embed)
-    #print(response.text)
+        embed = discord.Embed(title=titleName, value=str(titleName), inline=False)
+        embed.add_field(name="Synopsis", value=synopsis, inline=False)
+        embed.add_field(name="Type", value=titleType, inline=True)
+        embed.add_field(name="Year Released", value=titleReleased, inline=True)
+        embed.set_image(url=titleImage)
+        await ctx.send(embed=embed)
+        #print(response.text)
 
 @bot.event
 async def on_message(message):
