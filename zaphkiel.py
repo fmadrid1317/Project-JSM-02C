@@ -250,6 +250,43 @@ async def wholesome(ctx):
     embed.set_image(url=animal_image)
     await ctx.send(embed=embed)
 
+@bot.command(pass_context=True)
+async def netflix(ctx):
+    
+    message_list = ctx.message.content.split()
+    queryType = message_list[1]
+
+    url = "https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi"
+
+    if queryType == "new":
+        querystring = {"q":"get:new1:US","p":"1","t":"ns","st":"adv"}
+    if queryType == "exit":
+        querystring = {"q":"get:exp:US","t":"ns","st":"adv","p":"1"}
+
+    headers = {
+        'x-rapidapi-host': "unogs-unogs-v1.p.rapidapi.com",
+        'x-rapidapi-key': "6d91c9f439msh87c30494f5265adp18e8a7jsn6496e29a419a"
+        }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    data = json.loads(response.content)
+
+    titleName = data['COUNT']['ITEMS'][0]['title']
+    synopsis = data['COUNT']['ITEMS'][0]['synopsis']
+    rating = data['COUNT']['ITEMS'][0]['rating']
+    titleType = data['COUNT']['ITEMS'][0]['type']  
+    titleReleased = data['COUNT']['ITEMS'][0]['released']  
+    titleImage = data['COUNT']['ITEMS'][0]['image']
+
+
+
+    embed = discord.Embed(title=titleName, value=str(titleName), inline=False)
+    embed.add_field(name="Synopsis", value=synopsis, inline=False)
+    embed.add_field(name="Type", value=titleType, inline=True)
+    embed.add_field(name="Year Released", value=titleReleased, inline=True)
+    embed.set_image(url=titleImage)
+    await ctx.send(embed=embed)
+    #print(response.text)
 
 @bot.event
 async def on_message(message):
