@@ -258,6 +258,8 @@ async def netflix(ctx):
 
     url = "https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi"
 
+    querystring = {"q":"get:new1:US","p":"1","t":"ns","st":"adv"}
+
     if queryType == "new":
         querystring = {"q":"get:new1:US","p":"1","t":"ns","st":"adv"}
     if queryType == "exit":
