@@ -278,8 +278,6 @@ async def netflix(ctx):
     titleReleased = data['COUNT']['ITEMS'][0]['released']  
     titleImage = data['COUNT']['ITEMS'][0]['image']
 
-
-
     embed = discord.Embed(title=titleName, value=str(titleName), inline=False)
     embed.add_field(name="Synopsis", value=synopsis, inline=False)
     embed.add_field(name="Type", value=titleType, inline=True)
