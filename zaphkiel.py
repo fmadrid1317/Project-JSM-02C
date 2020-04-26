@@ -8,6 +8,8 @@ import requests
 import urllib
 import random
 import os
+import datetime
+
 
 
 
@@ -274,6 +276,9 @@ async def netflix(ctx):
 
     data = json.loads(response.content)
 
+    today = datetime.date.today()
+    tomorrow = now + datetime.timedelta(days = 1)
+
     for i in range(0, len(data['ITEMS'])):
         titleName = data['ITEMS'][i]['title']
         synopsis = data['ITEMS'][i]['synopsis']
@@ -281,6 +286,10 @@ async def netflix(ctx):
         titleType = data['ITEMS'][i]['type']  
         titleReleased = data['ITEMS'][i]['released']  
         titleImage = data['ITEMS'][i]['image']
+        netflixDate = data['ITEMS'][i]['unogsdate']
+
+        if netflixDate != today:
+            break
 
         embed = discord.Embed(title=titleName, value=str(titleName), inline=False)
         embed.add_field(name="Synopsis", value=synopsis, inline=False)
