@@ -277,7 +277,7 @@ async def netflix(ctx):
     data = json.loads(response.content)
 
     today = datetime.date.today()
-    #tomorrow = now + datetime.timedelta(days = 1)
+    tomorrow = today + datetime.timedelta(days = 1)
 
     for i in range(0, len(data['ITEMS'])):
         titleName = data['ITEMS'][i]['title']
@@ -288,7 +288,7 @@ async def netflix(ctx):
         titleImage = data['ITEMS'][i]['image']
         netflixDate = data['ITEMS'][i]['unogsdate']
 
-        if netflixDate != today:
+        if netflixDate <= tomorrow:
             break
 
         embed = discord.Embed(title=titleName, value=str(titleName), inline=False)
