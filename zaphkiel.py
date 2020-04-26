@@ -8,8 +8,7 @@ import requests
 import urllib
 import random
 import os
-from datetime import datetime
-from datetime import timedelta
+import datetime
 
 
 
@@ -276,7 +275,7 @@ async def netflix(ctx):
 
     data = json.loads(response.content)
 
-    today = datetime.today()
+    today = datetime.datetime.today()
     tomorrow = today + datetime.timedelta(days = 2)
     date_time = tomorrow.strftime("%Y-%m-%d")
 
