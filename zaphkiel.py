@@ -277,8 +277,8 @@ async def netflix(ctx):
     data = json.loads(response.content)
 
     today = datetime.date.today()
-    tomorrow = today + datetime.timedelta(days = 1)
-    date_time = tomorrow.strftime("%Y-%m-%d")
+    #tomorrow = today + datetime.timedelta(days = 1)
+    date_time = today.strftime("%Y-%m-%d")
 
     for i in range(0, len(data['ITEMS'])):
         titleName = data['ITEMS'][i]['title']
