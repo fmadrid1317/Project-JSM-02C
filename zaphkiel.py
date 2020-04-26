@@ -289,7 +289,7 @@ async def netflix(ctx):
         titleImage = data['ITEMS'][i]['image']
         netflixDate = data['ITEMS'][i]['unogsdate']
 
-        if netflixDate == date_time:
+        if netflixDate != date_time:
             break
 
         embed = discord.Embed(title=titleName, value=str(titleName), inline=False)
