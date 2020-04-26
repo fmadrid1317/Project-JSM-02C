@@ -8,8 +8,7 @@ import requests
 import urllib
 import random
 import os
-import datetime
-
+from datetime import datetime
 
 
 
