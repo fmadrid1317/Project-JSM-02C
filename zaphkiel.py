@@ -291,7 +291,7 @@ async def netflix(ctx):
         date_object = datetime.strptime(netflixDate, '%Y-%m-%d').date()
 
 
-        if tomorrow < date_object:
+        if tomorrow > date_object:
             break
 
         embed = discord.Embed(title=titleName, value=str(titleName), inline=False)
