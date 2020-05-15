@@ -315,7 +315,7 @@ async def covid(ctx):
     print(countryFix+" hopefully this motherfucking thing is what i THINK IT IS")
     url = "https://covid-19-data.p.rapidapi.com/country"
 
-    querystring = {"format":"json","name":countryFix}
+    querystring = {"format":"json","name":str(countryFix)}
 
     headers = {
         'x-rapidapi-host': "covid-19-data.p.rapidapi.com",
