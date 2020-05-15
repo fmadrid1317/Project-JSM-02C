@@ -307,9 +307,11 @@ async def netflix(ctx):
 @bot.command(pass_context=True)
 async def covid(ctx):
 
+    covid_list = ctx.message.content.split()
+    country = covid_list[1]
     url = "https://covid-19-data.p.rapidapi.com/country"
 
-    querystring = {"format":"json","name":"italy"}
+    querystring = {"format":"json","name":country}
 
     headers = {
         'x-rapidapi-host': "covid-19-data.p.rapidapi.com",
