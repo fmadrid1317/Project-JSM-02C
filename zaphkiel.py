@@ -326,12 +326,12 @@ async def covid(ctx):
 
     data = json.loads(response.content)
     
-    country = data[0]["country"]
+    countries = data[0]["country"]
     confirmed = data[0]["confirmed"]
     recovered = data[0]["recovered"]
     critical = data[0]["critical"]
     deaths = data[0]["deaths"]
-    embed = discord.Embed(title=country, value=str(country), inline=False)
+    embed = discord.Embed(title=countries, value=str(countries), inline=False)
     embed.add_field(name="Confirmed Cases", value=confirmed, inline=False)
     embed.add_field(name="Recovered", value=recovered, inline=False)
     embed.add_field(name="Critical Cases", value=critical, inline=False)
