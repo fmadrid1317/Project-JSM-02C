@@ -308,7 +308,7 @@ async def netflix(ctx):
 async def covid(ctx):
 
     covid_list = ctx.message.content.split()
-    country = covid_list[1]
+    country = covid_list[1:]
     url = "https://covid-19-data.p.rapidapi.com/country"
 
     querystring = {"format":"json","name":country}
