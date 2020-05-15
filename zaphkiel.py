@@ -309,8 +309,8 @@ async def covid(ctx):
 
     covid_list = ctx.message.content.split()
     country = str(covid_list[1:])
-    countryF = " ".join(country)
-    countryFix = countryF.replace(" ","")
+    countryStr = " ".join(country)
+    countryFix = countryStr.replace(" ","")
 
     print(countryFix+" hopefully this motherfucking thing is what i THINK IT IS")
     url = "https://covid-19-data.p.rapidapi.com/country"
