@@ -300,7 +300,42 @@ async def netflix(ctx):
         embed.add_field(name="Year Released", value=titleReleased, inline=True)
         embed.set_image(url=titleImage)
         await ctx.send(embed=embed)
-        #print(response.text)
+    #print(response.text)
+
+
+
+@bot.command(pass_context=True)
+async def covid(ctx):
+
+    url = "https://covid-19-data.p.rapidapi.com/country"
+
+    querystring = {"format":"json","name":"italy"}
+
+    headers = {
+        'x-rapidapi-host': "covid-19-data.p.rapidapi.com",
+        'x-rapidapi-key': "6d91c9f439msh87c30494f5265adp18e8a7jsn6496e29a419a"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    data = json.loads(response.content)
+    
+    country = data[0]["country"]
+    confirmed = data[0]["confrimed"]
+    recovered = data[0]["recovered"]
+    critical = data[0]["critical"]
+    deaths = data[0]["deaths"]
+    embed = discord.Embed(title=country, value=str(country), inline=False)
+    embed.add_field(name="Confirmed Cases", value=confirmed, inline=False)
+    embed.add_field(name="Recovered", value=recovered, inline=False)
+    embed.add_field(name="Critical Cases", value=critical, inline=False)
+    embed.add_field(name="Deaths", value=deaths, inline=False)
+    await ctx.send(embed=embed)
+
+
+    #print(response.text)
+
+        
 
 @bot.event
 async def on_message(message):
