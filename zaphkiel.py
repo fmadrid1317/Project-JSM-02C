@@ -321,7 +321,7 @@ async def covid(ctx):
     data = json.loads(response.content)
     
     country = data[0]["country"]
-    confirmed = data[0]["confrimed"]
+    confirmed = data[0]["confirmed"]
     recovered = data[0]["recovered"]
     critical = data[0]["critical"]
     deaths = data[0]["deaths"]
