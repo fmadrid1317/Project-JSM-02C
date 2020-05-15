@@ -310,12 +310,12 @@ async def covid(ctx):
     covid_list = ctx.message.content.split()
     country = covid_list[1:]
     countryStr = " ".join(country)
-    countryFix = countryStr.replace(" ","")
+    #countryFix = countryStr.replace(" ","")
 
-    print(countryFix+" hopefully this motherfucking thing is what i THINK IT IS")
+    print(countryStr+" hopefully this motherfucking thing is what i THINK IT IS")
     url = "https://covid-19-data.p.rapidapi.com/country"
 
-    querystring = {"format":"json","name":str(countryFix)}
+    querystring = {"format":"json","name":str(countryStr)}
 
     headers = {
         'x-rapidapi-host': "covid-19-data.p.rapidapi.com",
