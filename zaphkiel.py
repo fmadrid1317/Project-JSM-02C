@@ -308,7 +308,7 @@ async def netflix(ctx):
 async def covid(ctx):
 
     covid_list = ctx.message.content.split()
-    country = str(covid_list[1:])
+    country = covid_list[1:]
     countryStr = " ".join(country)
     countryFix = countryStr.replace(" ","")
 
