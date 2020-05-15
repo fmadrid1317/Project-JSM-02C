@@ -312,7 +312,7 @@ async def covid(ctx):
     countryStr = " ".join(country)
     #countryFix = countryStr.replace(" ","")
 
-    print(countryStr+" hopefully this motherfucking thing is what i THINK IT IS")
+    #print(countryStr+" hopefully this motherfucking thing is what i THINK IT IS")
     url = "https://covid-19-data.p.rapidapi.com/country"
 
     querystring = {"format":"json","name":str(countryStr)}
