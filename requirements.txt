@@ -2,6 +2,6 @@ django
 gunicorn
 django-heroku 
 pycoingecko
-discor
+discord
 jikanpy
 datetime
