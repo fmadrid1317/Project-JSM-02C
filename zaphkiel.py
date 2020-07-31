@@ -1,5 +1,5 @@
 # Work with Python 3.6
-import discord
+import discor
 from discord.ext import commands
 import re
 from jikanpy import Jikan
