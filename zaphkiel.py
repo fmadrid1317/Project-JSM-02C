@@ -13,7 +13,8 @@ import datetime
 
 
 #client = discord.Client()
-token = os.environ['token']
+#token = os.environ['token']
+token ='NjY0NTc2MjcxNjczNzIwODMy.Xip5Tg.1BWX_9I1KC-HcI9jJ0G3y-qcFQ0'
 bot = commands.Bot(command_prefix = '$')
 jikan = Jikan()
 
